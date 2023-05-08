@@ -1,6 +1,18 @@
 import React from "react";
 
-function Item({ name, category }) {
+
+const Item = ({ item, cartItems, handleAddToCart, handleRemoveFromCart }) => {
+  const isInCart = cartItems.includes(item.id);
+
+  const handleCartButtonClick = () => {
+    if (isInCart) {
+      handleRemoveFromCart(item.id);
+    } else {
+      handleAddToCart(item.id);
+    }
+  };
+}
+function Item ({ name, category }) {
   return (
     <li className="">
       <span>{name}</span>
